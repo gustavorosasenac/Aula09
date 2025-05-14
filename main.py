@@ -1,4 +1,4 @@
-from App.logica_sistema import cadastrar_aluno, listar_alunos, detalhar_aluno, deletar_aluno
+    from App.logica_sistema import cadastrar_aluno, listar_alunos, detalhar_aluno, deletar_aluno
 
 comando = ""
 

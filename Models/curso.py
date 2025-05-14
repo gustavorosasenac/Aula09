@@ -1,11 +1,11 @@
 class Curso:
-    def __init__(self, nome, duracao, professor, materias):
-        self.nome = nome
+    def __init__(self, nome_curso, duracao_curso, professor_curso, materias_curso):
+        self.nome_curso = nome_curso
         self.alunos = {}
-        self.duracao = duracao
-        self.professor = professor
-        self.materias = materias
-        self.aulas = []
+        self.duracao_curso = duracao_curso
+        self.professor_curso = professor_curso
+        self.materias_curso = materias_curso
+        self.aulas_curso = []
 
 
 

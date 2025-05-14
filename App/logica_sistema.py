@@ -1,5 +1,5 @@
 from Models.aluno import Aluno
-from Models.aluno import Curso
+from Models.curso import Curso
 
 
 CURSOS = {}
@@ -33,7 +33,7 @@ def listar_alunos():
     for aluno in ALUNOS.values(): # para cada aluno na lista ALUNOS
         resposta += (f"\nNome: {aluno.nome} \n"
                  f"Matricula: {aluno.matricula}\n"
-                 f"Curso: {aluno.curso.nome or "Sem curso no momento"}\n"
+                 f"Curso: {aluno.curso.nome or 'Sem curso no momento'}\n"
                  f"---------------------------------------\n ")
 
     return resposta
@@ -49,7 +49,7 @@ def detalhar_aluno(matricula):
             f"Matricula: {aluno.matricula} \n"
             f"Data de nascimento: {aluno.nascimento} \n"
             f"Data de ingresso: {aluno.ingresso}\n"
-            f"Curso: {aluno.curso.nome or "Sem curso cadastrado"} \n"
+            f"Curso: {aluno.curso.nome or 'Sem curso cadastrado'} \n"
             f"Notas: {aluno.notas}\n "
             )
 
@@ -69,6 +69,31 @@ def deletar_aluno(matricula):
     ALUNOS.pop(matricula)
 
     return "\nAluno excluido com sucesso"
+
+
+def cadastrar_curso(self, nome_curso, duracao_curso, professor_curso, materias_curso):
+    if not nome_curso or not duracao_curso or not professor_curso or not materias_curso:
+        return "Parametros inválidos"
+    
+    curso_objeto = Curso(nome_curso, duracao_curso, professor_curso, materias_curso)
+    CURSOS[nome_curso] = curso_objeto
+
+    return {
+        "curso": curso_objeto.nome_curso,
+        "duracao": curso_objeto.duracao_curso,
+        "professor": curso_objeto.professor_curso,
+        "materias": curso_objeto.materias_curso
+    }
+    
+
+
+def listar_curso(self):
+    pass
+
+
+
+def detalhar_curso(self):
+    pass
 
 
 

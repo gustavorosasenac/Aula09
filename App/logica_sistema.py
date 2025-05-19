@@ -33,7 +33,7 @@ def listar_alunos():
     for aluno in ALUNOS.values(): # para cada aluno na lista ALUNOS
         resposta += (f"\nNome: {aluno.nome} \n"
                  f"Matricula: {aluno.matricula}\n"
-                 f"Curso: {aluno.curso.nome or 'Sem curso no momento'}\n"
+                 f"Curso: {aluno.curso.nome if aluno.curso else 'Sem curso no momento'}\n"
                  f"---------------------------------------\n ")
 
     return resposta
@@ -71,7 +71,7 @@ def deletar_aluno(matricula):
     return "\nAluno excluido com sucesso"
 
 
-def cadastrar_curso(self, nome_curso, duracao_curso, professor_curso, materias_curso):
+def cadastrar_curso(nome_curso, duracao_curso, professor_curso, materias_curso):
     if not nome_curso or not duracao_curso or not professor_curso or not materias_curso:
         return "Parametros inválidos"
     

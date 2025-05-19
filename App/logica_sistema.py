@@ -6,7 +6,7 @@ CURSOS = {}
 ALUNOS = {}
 
 
-def cadastrar_aluno(nome, nascimento, nome_curso=None):
+def cadastrar_aluno(nome, nascimento, nome_curso):
     if not nome or not nascimento:
         return "Parametros inválidos"
 
@@ -24,7 +24,7 @@ def cadastrar_aluno(nome, nascimento, nome_curso=None):
     return {
         "aluno": aluno_objeto.nome,
         "matricula": aluno_objeto.matricula,
-        "curso": c.nome or None
+        "curso": c.nome_curso if c else "Sem curso cadastrado"
 
     }
 
@@ -33,7 +33,7 @@ def listar_alunos():
     for aluno in ALUNOS.values(): # para cada aluno na lista ALUNOS
         resposta += (f"\nNome: {aluno.nome} \n"
                  f"Matricula: {aluno.matricula}\n"
-                 f"Curso: {aluno.curso.nome if aluno.curso else 'Sem curso no momento'}\n"
+                 f"Curso: {aluno.curso if aluno.curso else 'Sem curso no momento'}\n"
                  f"---------------------------------------\n ")
 
     return resposta

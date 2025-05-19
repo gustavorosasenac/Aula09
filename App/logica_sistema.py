@@ -87,13 +87,43 @@ def cadastrar_curso(nome_curso, duracao_curso, professor_curso, materias_curso):
     
 
 
-def listar_curso(self):
-    pass
+def listar_curso():
+    resposta = ""
+    for curso in CURSOS.values():
+        resposta += (f"\nNome: {curso.nome_curso} \n"
+                 f"Duração: {curso.duracao_curso}\n"
+                 f"Professor: {curso.professor_curso}\n"
+                 f"Materias: {curso.materias_curso}\n"
+                 f"---------------------------------------\n ")
+
+    return resposta
 
 
 
-def detalhar_curso(self):
-    pass
+def detalhar_curso(nome_curso):
+    if not nome_curso:
+        return "\nParametros Invalidos"
+
+    curso = CURSOS.get(nome_curso)
+
+    return (f"\nNome: {curso.nome_curso}\n"
+            f"Professor: {curso.professor_curso} \n"
+            f"Materias: {curso.materias_curso} \n"
+            f"Aulas: {curso.aulas_curso}\n "
+            )
+
+def deletar_curso(nome_curso):
+    if not nome_curso:
+        return "\nParametros Invalidos"
+
+    curso = CURSOS.get(nome_curso)
+
+    if not curso:
+        return "\nEste curso não está cadastrado"
+
+    CURSOS.pop(nome_curso)
+
+    return "\nCurso excluido com sucesso"
 
 
 

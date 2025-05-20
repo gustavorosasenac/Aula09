@@ -5,7 +5,7 @@ from App.logica_sistema import adicionar_aluno_curso, cadastrar_aluno, deletar_c
 comando = ""
 
 while comando != "sair":
-    comando = input(f"Escolha uma opção:\n"
+    comando = input(f"-------------------MENU-------------------\n"
                     f"1: Cadastrar alunos\n"
                     f"2: Listar alunos\n"
                     f"3: Detalhar aluno\n"
@@ -14,7 +14,12 @@ while comando != "sair":
                     f"6: Listar cursos\n"
                     f"7: Detalhar curso\n"
                     f"8: Deletar curso\n"
-                    f"Digite 'sair' para sair.")
+                    f"9: Adicionar aluno ao curso\n"
+                    f"Digite 'sair' para sair.\n"
+                    f"Escolha uma opção: ")
+    if comando not in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "sair"]:
+        print("Opção inválida. Tente novamente.")
+        continue
 
 
     match comando:
@@ -26,6 +31,8 @@ while comando != "sair":
 
         case "2":
             print(listar_alunos())
+            if not listar_alunos():
+                print("Nenhum aluno cadastrado.")
 
         case "3":
             matricula = input("Informe a matricula do aluno: ")
@@ -45,6 +52,8 @@ while comando != "sair":
         
         case "6":
             print(listar_curso())
+            if not listar_curso():
+                print("Nenhum curso cadastrado.")
         
         case "7":
             nome_curso = input("Informe o nome do curso: ")

@@ -33,7 +33,7 @@ def listar_alunos():
 
 
 def detalhar_aluno(matricula):
-    if not matricula:
+    if not matricula in ALUNOS:
         return "\nParametros Invalidos"
 
     aluno = ALUNOS.get(matricula)
@@ -42,7 +42,7 @@ def detalhar_aluno(matricula):
             f"Matricula: {aluno.matricula} \n"
             f"Data de nascimento: {aluno.nascimento} \n"
             f"Data de ingresso: {aluno.ingresso}\n"
-            f"Curso: {aluno.curso.nome or 'Sem curso cadastrado'} \n"
+            f"Curso: {aluno.nome.curso or 'Sem curso cadastrado'} \n"
             f"Notas: {aluno.notas}\n "
             )
 

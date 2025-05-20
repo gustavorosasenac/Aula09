@@ -6,25 +6,18 @@ CURSOS = {}
 ALUNOS = {}
 
 
-def cadastrar_aluno(nome, nascimento, nome_curso):
+def cadastrar_aluno(nome, nascimento):
     if not nome or not nascimento:
         return "Parametros inválidos"
 
-    c = None
     aluno_objeto = Aluno(nome, nascimento)
-
-    if nome_curso:
-        c = CURSOS.get(nome_curso)
-        c.alunos[aluno_objeto.matricula] = aluno_objeto
-
 
     ALUNOS[aluno_objeto.matricula] = aluno_objeto
 
 
     return {
         "aluno": aluno_objeto.nome,
-        "matricula": aluno_objeto.matricula,
-        "curso": c.nome_curso if c else "Sem curso cadastrado"
+        "matricula": aluno_objeto.matricula
 
     }
 
@@ -124,6 +117,25 @@ def deletar_curso(nome_curso):
     CURSOS.pop(nome_curso)
 
     return "\nCurso excluido com sucesso"
+
+
+def adicionar_aluno_curso(nome_curso, matricula):
+    if not nome_curso or not matricula:
+        return "\nParametros invalidos"
+    
+    curso = CURSOS.get(nome_curso)
+    aluno = ALUNOS.get(matricula)
+
+    if not curso:
+        return "\nCurso não encontrado"
+
+    if not aluno:
+        return "\nAluno não encontrado"
+
+    curso.alunos[aluno.matricula] = aluno
+    aluno.curso = curso
+
+    return f"\nAluno {aluno.nome} cadastrado no curso {curso.nome_curso}"
 
 
 

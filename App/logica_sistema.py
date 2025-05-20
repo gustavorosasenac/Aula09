@@ -84,7 +84,7 @@ def listar_curso():
     resposta = ""
     for curso in CURSOS.values():
         resposta += (f"\nNome: {curso.nome_curso} \n"
-                 f"Duração: {curso.duracao_curso}\n"
+                 f"Duração: {curso.duracao_curso} meses \n"
                  f"Professor: {curso.professor_curso}\n"
                  f"Materias: {curso.materias_curso}\n"
                  f"---------------------------------------\n ")

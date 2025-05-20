@@ -49,7 +49,7 @@ while comando != "sair":
             materias_curso = input("Informe as matérias do curso: ")
 
             cadastrar_curso(nome_curso, duracao_curso, professor_curso, materias_curso)
-            print(f"Curso {nome_curso} cadastrado com sucesso!")6
+            print(f"Curso {nome_curso} cadastrado com sucesso!")
         
         case "6":
             print(listar_curso())

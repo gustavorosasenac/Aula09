@@ -6,6 +6,9 @@ class Curso:
         self.professor_curso = professor_curso
         self.materias_curso = materias_curso
         self.aulas_curso = []
+    
+    def __str__(self):
+        return f"{self.nome_curso}"
 
 
 

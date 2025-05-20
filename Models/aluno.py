@@ -12,7 +12,7 @@ class Aluno:
         self.nascimento = nascimento
         self.matricula = str(uuid4()) #uuid4 vai gerar um id
         self.ingresso = datetime.timezone #puxar a data atual do sistema
-        self.curso = None
+        self.curso = ""
         self.notas = []
 
     #COMPORTAMENTOS

@@ -14,5 +14,5 @@ class Curso:
 
 
     def listar_alunos_aprovados(self):
-        pass
+        
 
